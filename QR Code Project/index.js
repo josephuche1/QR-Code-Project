@@ -5,14 +5,21 @@
 */
 
 import inquirer from "inquirer";
-import { image } from "qr-image";
-
+import qr from "qr-image";
+import fs from fs;
 inquirer
   .prompt([
-    /* Pass your questions in here */
+    
+    {
+      message: "Type in your url: ",
+      name: "URL"
+    }
   ])
   .then((answers) => {
     // Use user feedback for... whatever!!
+    let url = anwers.URL;
+    
+    
   })
   .catch((error) => {
     if (error.isTtyError) {
