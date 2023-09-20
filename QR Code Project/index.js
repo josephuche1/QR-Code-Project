@@ -6,7 +6,8 @@
 
 import inquirer from "inquirer";
 import qr from "qr-image";
-import fs from fs;
+import fs from "fs";
+
 inquirer
   .prompt([
     
@@ -18,7 +19,8 @@ inquirer
   .then((answers) => {
     // Use user feedback for... whatever!!
     let url = anwers.URL;
-    
+    var qr_svg = qr.image(url);
+    qr_svg.pipe(fs.createWriteStream('qr-code.svg'));
     
   })
   .catch((error) => {
